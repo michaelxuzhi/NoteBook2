@@ -14,7 +14,6 @@ public class MyAdapter extends BaseAdapter {
 
     private Context context;
     private Cursor cursor;
-    private LinearLayout layout;
 
     public MyAdapter(MainActivity context, Cursor cursor){
         this.context = context;
@@ -38,7 +37,7 @@ public class MyAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        layout = (LinearLayout) inflater.inflate(R.layout.list,null);
+        LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.list, null);
         TextView contenttv = (TextView) layout.findViewById(R.id.list_content);
         TextView timetv = (TextView) layout.findViewById(R.id.list_time);
         cursor.moveToPosition(position);

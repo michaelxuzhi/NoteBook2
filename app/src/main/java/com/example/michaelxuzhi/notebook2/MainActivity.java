@@ -9,17 +9,14 @@ package com.example.michaelxuzhi.notebook2;
         import android.widget.AdapterView;
         import android.widget.Button;
         import android.widget.ListView;
-        import java.util.Timer;
+      //import java.util.Timer;
 
 public class MainActivity extends Activity implements View.OnClickListener {
 
-    private Button addbtn;
     private ListView lv;
-    private Intent i;
     private SQLiteDatabase dbReader;
     private Cursor cursor;
     private NotesDB notesDB;
-    private MyAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +28,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
     private void initView() {
-        addbtn = (Button) findViewById(R.id.main_add);
+        Button addbtn = (Button) findViewById(R.id.main_add);
         lv = (ListView) findViewById(R.id.main_list);
         addbtn.setOnClickListener(this);
         notesDB = new NotesDB(this);
@@ -51,13 +48,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        i = new Intent(this, Addcontent.class);
+        Intent i = new Intent(this, Addcontent.class);
         startActivity(i);
     }
 
     private void selectDB() {
         cursor = dbReader.query(NotesDB.TABLE_NAME, null, null, null, null, null, null);
-        adapter = new MyAdapter(this, cursor);
+        MyAdapter adapter = new MyAdapter(this, cursor);
         lv.setAdapter(adapter);
     }
 

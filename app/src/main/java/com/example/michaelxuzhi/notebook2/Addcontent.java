@@ -2,7 +2,7 @@ package com.example.michaelxuzhi.notebook2;
 
         import android.app.Activity;
         import android.content.ContentValues;
-        import android.content.Intent;
+      //import android.content.Intent;
         import android.database.sqlite.SQLiteDatabase;
         import android.os.Bundle;
         import android.view.View;
@@ -15,21 +15,19 @@ package com.example.michaelxuzhi.notebook2;
 public class Addcontent extends Activity implements View.OnClickListener {
 
 
-    private Button savebtn, deletebtn;
     private EditText ettext;
-    private NotesDB notesDB;
     private SQLiteDatabase dbWriter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_list);
-        savebtn = (Button) findViewById(R.id.add_save);
-        deletebtn = (Button) findViewById(R.id.add_delete);
+        Button savebtn = (Button) findViewById(R.id.add_save);
+        Button deletebtn = (Button) findViewById(R.id.add_delete);
         ettext = (EditText) findViewById(R.id.add_etv);
         savebtn.setOnClickListener(this);
         deletebtn.setOnClickListener(this);
-        notesDB = new NotesDB(this);
+        NotesDB notesDB = new NotesDB(this);
         dbWriter = notesDB.getWritableDatabase();
     }
 

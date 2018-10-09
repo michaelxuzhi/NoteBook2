@@ -8,7 +8,7 @@
 <LinearLayout
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:layout_weight="1">
+    android:layout_weight="1" > <!--平均分割剩余空间-->
 
     <ListView
         android:id="@+id/main_list"
